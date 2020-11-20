@@ -37,7 +37,7 @@ public class Main {
                     + "\n" + automobile.toString());
         }
 
-        System.out.println("\nEnter max speed threshold in two lines. \n(Format:minspeed\n\t\tmaxspeed): ");
+        System.out.println("\nEnter max speed threshold in two lines. \nFormat:\nminspeed\nmaxspeed\n");
         double minSpeed = readDoubleFromConsole();
         double maxSpeed = readDoubleFromConsole();
 
