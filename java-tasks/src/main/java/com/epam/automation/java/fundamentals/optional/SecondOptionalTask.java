@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class SecondOptionalTask {
 
-    static void deleteMaxElement(Integer[][] matrix) {
+    private static void deleteMaxElement(Integer[][] matrix) {
         ArrayList<ArrayList<Integer>> listMatrix = matrixToArrayList(matrix);
         int maxI = 0;
         int maxJ = 0;
@@ -21,8 +21,8 @@ public class SecondOptionalTask {
                 }
             }
         }
-        for (int i = 0; i < listMatrix.size(); i++) {
-            listMatrix.get(i).remove(maxJ);
+        for (ArrayList<Integer> columns : listMatrix) {
+            columns.remove(maxJ);
         }
         listMatrix.remove(maxI);
         System.out.println("Max element is " + maxElement +
@@ -30,7 +30,7 @@ public class SecondOptionalTask {
         printMatrix(arrayListToMatrix(listMatrix));
     }
 
-    static void sumBetweenPositives(Integer[][] matrix) {
+    private static void sumBetweenPositives(Integer[][] matrix) {
         int size = matrix.length;
         int[] lineSums = new int[size];
         boolean foundFirstPositive;
@@ -57,15 +57,15 @@ public class SecondOptionalTask {
         }
     }
 
-    static ArrayList<ArrayList<Integer>> matrixToArrayList(Integer[][] matrix) {
+    private static ArrayList<ArrayList<Integer>> matrixToArrayList(Integer[][] matrix) {
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-        for (int i = 0; i < matrix.length; i++) {
-            list.add(new ArrayList<>(Arrays.asList(matrix[i])));
+        for (Integer[] line : matrix) {
+            list.add(new ArrayList<>(Arrays.asList(line)));
         }
         return list;
     }
 
-    static Integer[][] arrayListToMatrix(ArrayList<ArrayList<Integer>> list) {
+    private static Integer[][] arrayListToMatrix(ArrayList<ArrayList<Integer>> list) {
         Integer[][] matrix = new Integer[list.size()][list.size()];
         for (int i = 0; i < matrix.length; i++) {
             matrix[i] = list.get(i).toArray(Integer[]::new);
@@ -73,11 +73,11 @@ public class SecondOptionalTask {
         return matrix;
     }
 
-    static void printMatrix(Integer[][] matrix) {
+    private static void printMatrix(Integer[][] matrix) {
         for (Integer[] arr : matrix) {
-            System.out.print("[\t");
-            for (Integer i : arr) {
-                System.out.print(i + "\t");
+            System.out.print("[");
+            for (Integer element : arr) {
+                System.out.printf("%4d ", element);
             }
             System.out.print("]\n");
         }
@@ -87,7 +87,7 @@ public class SecondOptionalTask {
         Integer[][] matrix;
         Scanner inputScanner = new Scanner(System.in);
         int matrixSize;
-        int numbersRange;
+        double numbersRange;
         System.out.println("Enter matrix size N");
         while (true) {
             if (inputScanner.hasNextInt()) {
@@ -99,11 +99,11 @@ public class SecondOptionalTask {
         }
         System.out.println("Enter numbers range M");
         while (true) {
-            if (inputScanner.hasNextInt()) {
-                numbersRange = inputScanner.nextInt();
+            if (inputScanner.hasNextDouble()) {
+                numbersRange = inputScanner.nextDouble();
                 break;
             }
-            System.out.println("Please enter INTEGER");
+            System.out.println("Please enter correct number");
             inputScanner.nextLine();
         }
         inputScanner.close();
@@ -117,7 +117,7 @@ public class SecondOptionalTask {
 
         System.out.println("Matrix:\n");
         printMatrix(matrix);
-        System.out.println("\nSums of lines between positives:");
+        System.out.println("\nSums of lines arguments between positive elements:");
         sumBetweenPositives(matrix);
         System.out.println("\nMatrix without max element");
         deleteMaxElement(matrix);

@@ -6,32 +6,30 @@ import java.util.List;
 import java.util.Random;
 
 public class StudentService {
-    private final static int NAMES_LIST_SIZE = 11;
-    private final static int SURNAMES_LIST_SIZE = 8;
-    private final static int PATRONYMISC_LIST_SIZE = 5;
-    private final static int COURSES_COUNT = 5;
-    private final static int FACULTIES_COUNT = 9;
+    private static final int NAMES_LIST_SIZE = 11;
+    private static final int SURNAMES_LIST_SIZE = 8;
+    private static final int PATRONYMISC_LIST_SIZE = 5;
+    private static final int COURSES_COUNT = 5;
+    private static final int FACULTIES_COUNT = 9;
+    private static final List<String> namesList = Arrays.asList("Pavel", "Mary", "Elizabeth", "Dmitry", "Egor", "Victoria", "Ivan", "Petr", "Anton", "Ulia", "Polina");
+    private static final List<String> surnamesList = Arrays.asList("Sharuba", "Zheltok", "Kapusta", "Borsch", "Smetana", "Zvezda", "Kofeek", "Chaika");
+    private static final List<String> patronymicsList = Arrays.asList("Vladimirovich", "Petrovich", "Ivanovich", "Pavlovich", "Dmitrievich");
+
     private Student[] students;
-    private List<String> namesList;
-    private List<String> surnamesList;
-    private List<String> patronymicsList;
 
     public StudentService(int studentsNumber) {
         students = new Student[studentsNumber];
-        namesList = Arrays.asList("Pavel", "Mary", "Elizabeth", "Dmitry", "Egor", "Victoria", "Ivan", "Petr", "Anton", "Ulia", "Polina");
-        surnamesList = Arrays.asList("Sharuba", "Zheltok", "Kapusta", "Borsch", "Smetana", "Zvezda", "Kofeek", "Chaika");
-        patronymicsList = Arrays.asList("Vladimirovich", "Petrovich", "Ivanovich", "Pavlovich", "Dmitrievich");
         for (int i = 0; i < studentsNumber; i++) {
             students[i] = generateStudent(i);
         }
     }
 
-    public Student generateStudent(int id) {
+    private Student generateStudent(int id) {
         String name = namesList.get(new Random().nextInt(NAMES_LIST_SIZE - 1));
         String surname = surnamesList.get(new Random().nextInt(SURNAMES_LIST_SIZE - 1));
         String patronymic = patronymicsList.get(new Random().nextInt(PATRONYMISC_LIST_SIZE - 1));
         int year = new Random().nextInt(15) + 1990;
-        int day = new Random().nextInt(364)+1;
+        int day = new Random().nextInt(364) + 1;
         LocalDate dateOfBirth = LocalDate.ofYearDay(year, day);
         int faculty = new Random().nextInt(FACULTIES_COUNT - 1);
         int course = new Random().nextInt(COURSES_COUNT - 1);
@@ -40,7 +38,7 @@ public class StudentService {
     }
 
     public void printAllStudentsOfFaculty(Faculty faculty) {
-        System.out.println("List of all students of " + faculty.getFacultyName());
+        System.out.println("List of all students of " + faculty.getFacultyName()+"\n");
         for (Student student : students) {
             if (student.getFaculty() == faculty) {
                 System.out.println(student.toString() + "\n\n");

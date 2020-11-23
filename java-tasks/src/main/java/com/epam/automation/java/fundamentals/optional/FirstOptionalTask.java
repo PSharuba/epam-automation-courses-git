@@ -68,7 +68,7 @@ public class FirstOptionalTask {
         for (int i = 0; i < array.length; i++) {
             int[] digits = new int[10];
             for (int j = 0; j < array[i].length(); j++) {
-                if (array[i].charAt(j) == '-' || array[i].charAt(j) == ',') continue;
+                if (array[i].charAt(j) == '-' || array[i].charAt(j) == '.') continue;
                 digits[array[i].charAt(j) - '0']++;
             }
             int diffDigits = 0;
@@ -115,7 +115,7 @@ public class FirstOptionalTask {
         for (int i = 0; i < n; i++) {
             while (true) {
                 if (inputScanner.hasNextDouble()) {
-                    numbers[i] = inputScanner.nextLine().trim();
+                    numbers[i] = "" + inputScanner.nextDouble();
                     break;
                 }
                 System.out.println("Please enter DOUBLE number.");
