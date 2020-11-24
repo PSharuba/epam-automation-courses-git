@@ -5,9 +5,7 @@ import com.epam.automation.java.collections.main.taxistation.entities.TaxiStatio
 import com.epam.automation.java.collections.main.taxistation.utils.AutomobileFuelConsumptionComparator;
 import com.epam.automation.java.collections.main.taxistation.utils.AutomobileIdComparator;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
