@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TaxiStation {
     private List<Automobile> automobiles;
-    private static final String FILE_ADDRESS = "data\\automobiles.csv";
+    private static final String FILE_ADDRESS = "src/main/resources/automobiles.csv";
 
     public TaxiStation() throws IOException {
         automobiles = new CarBuilder().readAutomobilesFromFile(FILE_ADDRESS);

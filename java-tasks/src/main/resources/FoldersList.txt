@@ -1,0 +1,46 @@
+Directory: D:\EPAM\git-course\epam-automation-courses-git\java-tasks\src\main\java\com\epam\automation\java
+|-java
+|--classes
+|  Course.java
+|  Faculty.java
+|  Main.java
+|  Student.java
+|  StudentService.java
+|--collections
+|---main
+|----taxistation
+|    Main.java
+|-----entities
+|     Automobile.java
+|     Car.java
+|     TaxiStation.java
+|     Truck.java
+|-----enums
+|     CargoCarType.java
+|     PassengerCarType.java
+|-----utils
+|     AutomobileFuelConsumptionComparator.java
+|     AutomobileIdComparator.java
+|     CarBuilder.java
+|---optional
+|   NumberList.java
+|   Poem.java
+|   Text.java
+|--fundamentals
+|---main
+|   CommandLineArgumentsSunMultiplication.java
+|   HelloUser.java
+|   MonthNames.java
+|   RandomNumbersPrint.java
+|   ReverseOrderArgs.java
+|---optional
+|   FirstOptionalTask.java
+|   SecondOptionalTask.java
+|--io
+|---main
+|----scanner
+|    DirectoryScanner.java
+|-----comparators
+|     FileNameComparator.java
+|     FileTypeComparator.java
+|---optional

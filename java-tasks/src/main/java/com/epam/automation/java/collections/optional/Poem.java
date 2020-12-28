@@ -57,7 +57,7 @@ public class Poem {
 
     public static void main(String[] args) throws IOException {
         Poem poem = new Poem();
-        poem.setPoem("data\\poem.txt");
+        poem.setPoem("src/main/resources/poem.txt");
         ArrayList<String> lines = (ArrayList<String>) poem.getPoem();
         lines.sort(poem.getComparator());
 

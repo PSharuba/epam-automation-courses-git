@@ -53,7 +53,7 @@ public class Text {
     }
 
     public static void main(String[] args) throws IOException {
-        Text text = new Text("data\\englishText.txt");
+        Text text = new Text("src/main/resources/englishText.txt");
         HashSet<String> uniqueWords = text.findUniqueWords();
         System.out.println(uniqueWords.size() + " unique words " + uniqueWords);
     }

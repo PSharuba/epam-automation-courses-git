@@ -1,0 +1,6 @@
+pirate
+dog
+I/O
+java
+parrot
+cat
