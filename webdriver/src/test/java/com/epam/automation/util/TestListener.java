@@ -19,12 +19,12 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-
+        log.info("Started test");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-
+        log.info("Test success");
     }
 
     @Override
@@ -58,6 +58,7 @@ public class TestListener implements ITestListener {
     }
 
     private void saveScreenshot() {
+        log.warn("Trying to take error screenshot");
         File screen = ((TakesScreenshot) DriverSingleton.getDriver())
                 .getScreenshotAs(OutputType.FILE);
         try {
