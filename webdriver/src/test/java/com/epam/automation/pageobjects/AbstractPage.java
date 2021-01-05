@@ -1,20 +1,22 @@
-package pageobjects;
+package com.epam.automation.pageobjects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
 
 public abstract class AbstractPage {
-    private WebDriver webDriver;
+    protected WebDriver webDriver;
+    protected Logger logger;
 
     public AbstractPage(WebDriver webDriver) {
         this.webDriver = webDriver;
+        logger = LogManager.getRootLogger();
+        logger.info("Created page object");
     }
 
-    public WebDriver getWebDriver() {
-        return webDriver;
-    }
 
     public abstract AbstractPage openPage(String URL);
 
