@@ -21,7 +21,7 @@ public class PasteBinTests extends CommonConditions {
     @Test
     @Ignore
     public void createNewPasteAndCheckItsTextIsEqualToExpectedText() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("ICanWin");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteText = new PasteCreationPage(webDriver)
                 .openPage()
                 .fillPasteFields(paste)
@@ -33,7 +33,7 @@ public class PasteBinTests extends CommonConditions {
     @Test
     @Ignore
     public void createNewPasteAndCheckItsTitleIsEqualToExpectedTitle() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("BringItOn");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteTitle = new PasteCreationPage(webDriver)
                 .openPage()
                 .fillPasteFields(paste)
@@ -45,7 +45,7 @@ public class PasteBinTests extends CommonConditions {
     @Test
     @Ignore
     public void createNewPasteWithHighlightingAndCheckItsHighlightingIsEqualToExpectedHighlighting() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("BringItOn");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteHighlighting = new PasteCreationPage(webDriver)
                 .openPage()
                 .fillPasteFields(paste)
@@ -56,7 +56,7 @@ public class PasteBinTests extends CommonConditions {
 
     @Test
     public void OpenPreMadePasteAndCheckItsTextIsEqualToExpectedText() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("BringItOn");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteText = new PastePage(webDriver)
                 .openPage(PRE_MADE_PASTE_URL)
                 .getPasteText();
@@ -65,7 +65,7 @@ public class PasteBinTests extends CommonConditions {
 
     @Test
     public void OpenPreMadePasteAndCheckItsTitleIsEqualToExpectedTitle() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("BringItOn");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteTitle = new PastePage(webDriver)
                 .openPage(PRE_MADE_PASTE_URL)
                 .getPasteTitle();
@@ -74,7 +74,7 @@ public class PasteBinTests extends CommonConditions {
 
     @Test
     public void OpenPreMadePasteAndCheckItsHighlightingIsEqualToExpectedHighlighting() {
-        Paste paste = PasteCreator.createNewPasteFromProperties("BringItOn");
+        Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteHighlighting = new PastePage(webDriver)
                 .openPage(PRE_MADE_PASTE_URL)
                 .getPasteHighlighting();
