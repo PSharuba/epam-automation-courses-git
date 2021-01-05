@@ -41,7 +41,7 @@ public class TenMinuteMailPage extends AbstractPage {
     }
 
     public String getEmailAddress() {
-        new WebDriverWait(webDriver, 20)
+        new WebDriverWait(webDriver, 30)
                 .until(ExpectedConditions.elementToBeClickable(copyEmailButton))
                 .click();
         String email = null;
