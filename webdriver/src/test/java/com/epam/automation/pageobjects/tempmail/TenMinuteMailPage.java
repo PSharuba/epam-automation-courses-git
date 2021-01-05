@@ -32,7 +32,7 @@ public class TenMinuteMailPage extends AbstractPage {
     }
 
     public String getEstimatedCostFromMessage() {
-        new WebDriverWait(webDriver, 60)
+        new WebDriverWait(webDriver, 120)
                 .until(ExpectedConditions.elementToBeClickable(messageContainer)).click();
 
         return new WebDriverWait(webDriver, 60)
@@ -41,7 +41,7 @@ public class TenMinuteMailPage extends AbstractPage {
     }
 
     public String getEmailAddress() {
-        new WebDriverWait(webDriver, 10)
+        new WebDriverWait(webDriver, 20)
                 .until(ExpectedConditions.elementToBeClickable(copyEmailButton))
                 .click();
         String email = null;

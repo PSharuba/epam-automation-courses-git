@@ -167,7 +167,9 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
     }
 
     public GoogleCloudCalculatorPage addToEstimate() {
-        addToEstimateButton.click();
+        new WebDriverWait(webDriver, 10)
+                .until(ExpectedConditions.elementToBeClickable(addToEstimateButton))
+                .click();
         logger.info("Added instance to estimate");
         return this;
     }
