@@ -71,7 +71,7 @@ public class DataTypeFinder {
         int searchedType = -1;
 
         System.out.println("Choose data type to search for (int, double, char, string):");
-        input = scanner.nextLine().toLowerCase();
+        input = scanner.nextLine().trim().toLowerCase();
         while (searchedType == -1) {
             switch (input) {
                 case "int":

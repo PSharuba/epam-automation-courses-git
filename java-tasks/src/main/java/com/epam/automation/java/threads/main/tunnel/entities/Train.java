@@ -30,9 +30,11 @@ public class Train extends Thread {
             System.out.printf("Train №%2d entered tunnel №%d from %s \n", id, tunnel.getId(), (isLeftSide ? "left side" : "right side"));
             TimeUnit.MILLISECONDS.sleep(tunnel.getLength());
             System.out.printf("Train №%2d left tunnel №%d \nTravelled %4d meters\n", id, tunnel.getId(), tunnel.getLength());
-            tunnel.free();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            tunnel.free();
         }
     }
 

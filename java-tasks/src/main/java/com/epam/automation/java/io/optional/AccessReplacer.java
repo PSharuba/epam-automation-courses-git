@@ -12,6 +12,8 @@ public class AccessReplacer {
 
     private static final String DEFAULT_INPUT_FILE = "src/main/java/com/epam/automation/java/classes/Student.java";
     private static final String DEFAULT_OUTPUT_FILE = "src/main/resources/PrivateStudent.txt";
+    private static final String PUBLIC_MODIFIER = "public ";
+    private static final String PRIVATE_MODIFIER = "private ";
 
     public void replacePublicWithPrivate(String address) {
         ArrayList<String> fileLines = new ArrayList<>();
@@ -19,7 +21,7 @@ public class AccessReplacer {
              BufferedReader bufferedReader = new BufferedReader(reader)) {
 
             bufferedReader.lines().forEach(fileLines::add);
-            fileLines.forEach((n) -> System.out.println(n.replace("public", "private")));
+            fileLines.forEach((n) -> System.out.println(n.replace(PUBLIC_MODIFIER, PRIVATE_MODIFIER)));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
