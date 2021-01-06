@@ -26,6 +26,9 @@ public class TenMinuteMailPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='mail_message']")
     WebElement messageContainer;
 
+    @FindBy(xpath = "//input[@id='mail_address']")
+    WebElement mailAddressField;
+
     public TenMinuteMailPage(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
@@ -41,6 +44,8 @@ public class TenMinuteMailPage extends AbstractPage {
     }
 
     public String getEmailAddress() {
+        new WebDriverWait(webDriver, 10)
+                .until(ExpectedConditions.elementToBeClickable(mailAddressField));
         new WebDriverWait(webDriver, 30)
                 .until(ExpectedConditions.elementToBeClickable(copyEmailButton))
                 .click();

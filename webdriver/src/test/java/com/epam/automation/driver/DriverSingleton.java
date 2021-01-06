@@ -1,6 +1,7 @@
 package com.epam.automation.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -27,7 +28,7 @@ public class DriverSingleton {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
-            driver.manage().window().maximize();
+            resizeBrowser();
         }
         return driver;
     }
@@ -35,5 +36,10 @@ public class DriverSingleton {
     public static void closeDriver() {
         driver.quit();
         driver = null;
+    }
+
+    public static void resizeBrowser() {
+        Dimension d = new Dimension(1920, 1080);
+        driver.manage().window().setSize(d);
     }
 }
