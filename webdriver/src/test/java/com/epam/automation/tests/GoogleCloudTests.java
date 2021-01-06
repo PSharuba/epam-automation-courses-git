@@ -22,6 +22,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         String resultPrice = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -40,6 +42,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         String vmClass = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -58,6 +62,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         String resultType = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -76,6 +82,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         String resultDatacenter = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -94,6 +102,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         String resultSSD = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -112,6 +122,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         int resultInstanceCount = new GoogleCloudMainPage(webDriver)
                 .openPage()
@@ -130,6 +142,8 @@ public class GoogleCloudTests extends CommonConditions {
         String searchQuery = DataReader.readData("google.cloud.search.query");
         GoogleCloudComputerInstance instance = GoogleComputerInstanceCreator
                 .createNewPasteFromProperties();
+        log.info("Search query: " + searchQuery);
+        log.info("Test instance: " + instance.toString());
 
         GoogleCloudCalculatorPage calculatorPage = new GoogleCloudMainPage(webDriver)
                 .openPage()

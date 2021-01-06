@@ -12,7 +12,7 @@ import org.testng.annotations.Listeners;
 @Listeners({TestListener.class})
 public class CommonConditions {
     protected WebDriver webDriver;
-    private Logger log = LogManager.getRootLogger();
+    protected Logger log = LogManager.getRootLogger();
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetup() {
