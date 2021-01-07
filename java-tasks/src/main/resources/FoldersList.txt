@@ -26,6 +26,28 @@ Directory: D:\EPAM\git-course\epam-automation-courses-git\java-tasks\src\main\ja
 |   NumberList.java
 |   Poem.java
 |   Text.java
+|--exceptions
+|---university
+|   Main.java
+|----entities
+|    Faculty.java
+|    Group.java
+|    Student.java
+|    Subject.java
+|    University.java
+|----enums
+|    FacultyType.java
+|    SubjectType.java
+|----exceptions
+|    IllegalFacultyCountException.java
+|    IllegalGroupCountException.java
+|    IllegalMarkException.java
+|    IllegalStudentCountException.java
+|    IllegalSubjectCountException.java
+|----utils
+|    FacultyBuilder.java
+|    StudentBuilder.java
+|    UniversityBuilder.java
 |--fundamentals
 |---main
 |   CommandLineArgumentsSunMultiplication.java
@@ -44,3 +66,21 @@ Directory: D:\EPAM\git-course\epam-automation-courses-git\java-tasks\src\main\ja
 |     FileNameComparator.java
 |     FileTypeComparator.java
 |---optional
+|   AccessReplacer.java
+|   DataTypeFinder.java
+|   RandomNumbersFileFiller.java
+|   WordSearcher.java
+|--threads
+|---main
+|----tunnel
+|    Main.java
+|-----entities
+|     Mountain.java
+|     Train.java
+|     Tunnel.java
+|---optional
+|   Main.java
+|----entities
+|    Airport.java
+|    Plane.java
+|    Runway.java

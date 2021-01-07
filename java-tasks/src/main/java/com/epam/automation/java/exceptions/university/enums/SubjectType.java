@@ -1,7 +1,8 @@
 package com.epam.automation.java.exceptions.university.enums;
 
 public enum SubjectType {
-    MATH {
+
+    MATH("Mathematical science") {
         @Override
         public String getSubjectName() {
             return "Mathematical science";
@@ -32,6 +33,19 @@ public enum SubjectType {
             return "English";
         }
     };
+    private String name;
 
-    public abstract String getSubjectName();
+    SubjectType(String s) {
+        this.name = s;
+    }
+
+    SubjectType() {
+
+    }
+
+    public String getSubjectName() {
+        return name;
+    }
+
+    ;
 }

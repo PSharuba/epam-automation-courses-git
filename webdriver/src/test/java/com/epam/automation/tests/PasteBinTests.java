@@ -3,7 +3,6 @@ package com.epam.automation.tests;
 import com.epam.automation.model.Paste;
 import com.epam.automation.pageobjects.pastebin.PastePage;
 import com.epam.automation.service.PasteCreator;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import com.epam.automation.pageobjects.pastebin.PasteCreationPage;
 
@@ -15,11 +14,7 @@ public class PasteBinTests extends CommonConditions {
     public static final String PRE_MADE_PASTE_URL = "https://pastebin.com/6QFUzPtu";
 
 
-    /**
-     * Ignoring create tests due to pastebin guest restrictions
-     */
     @Test
-    @Ignore
     public void createNewPasteAndCheckItsTextIsEqualToExpectedText() {
         Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteText = new PasteCreationPage(webDriver)
@@ -31,7 +26,6 @@ public class PasteBinTests extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void createNewPasteAndCheckItsTitleIsEqualToExpectedTitle() {
         Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteTitle = new PasteCreationPage(webDriver)
@@ -43,7 +37,6 @@ public class PasteBinTests extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void createNewPasteWithHighlightingAndCheckItsHighlightingIsEqualToExpectedHighlighting() {
         Paste paste = PasteCreator.createNewPasteFromProperties();
         String pasteHighlighting = new PasteCreationPage(webDriver)

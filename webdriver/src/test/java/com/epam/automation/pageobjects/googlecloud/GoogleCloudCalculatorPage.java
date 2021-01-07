@@ -134,7 +134,7 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
                 .click();
         commitedUsageField.click();
         new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(
+                .until(ExpectedConditions.elementToBeClickable(
                         By.xpath(COMMITED_USAGE_OPTION_LOCATOR_PREFIX
                                 + instance.getUsage()
                                 + LOCATOR_POSTFIX

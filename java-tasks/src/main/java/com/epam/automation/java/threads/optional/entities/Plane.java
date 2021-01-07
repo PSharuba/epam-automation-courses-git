@@ -22,8 +22,8 @@ public class Plane extends Thread {
             System.out.println("Plane " + id + " entered runway " + runway.getId());
             TimeUnit.SECONDS.sleep(TIME_TO_TAKE_OFF);
             System.out.println("Plane " + id + " took off");
-            airport.getRunways().put(runway);
             System.out.println("Runway " + runway.getId() + " is free");
+            airport.getRunways().put(runway);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

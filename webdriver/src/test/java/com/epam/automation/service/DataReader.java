@@ -20,9 +20,9 @@ public class DataReader {
         }
     }
 
-    public static String readData(String key) {
+    public static String readData(String fullKey) {
         try {
-            return ResourceBundle.getBundle(System.getProperty("env")).getString(key);
+            return ResourceBundle.getBundle(System.getProperty("env")).getString(fullKey);
         } catch (MissingResourceException e) {
             return null;
         }

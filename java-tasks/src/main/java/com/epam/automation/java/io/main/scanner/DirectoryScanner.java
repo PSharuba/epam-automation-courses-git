@@ -100,8 +100,9 @@ public class DirectoryScanner {
     }
 
     public static void main(String[] args) {
-        if (args.length > 0) {
-            File fileOrDirectory = new File(args[0]);
+        String path = "D:\\EPAM\\git-course\\epam-automation-courses-git\\java-tasks\\src\\main\\resources\\FoldersList.txt";
+        if (args.length >= 0) {
+            File fileOrDirectory = new File(path);
             if (fileOrDirectory.exists()) {
                 DirectoryScanner scanner = new DirectoryScanner();
                 if (fileOrDirectory.isDirectory()) {
@@ -114,7 +115,7 @@ public class DirectoryScanner {
                     }
 
                 } else if (fileOrDirectory.isFile()) {
-                    try (FileReader reader = new FileReader(args[0]);
+                    try (FileReader reader = new FileReader(path);
                          BufferedReader bufferedReader = new BufferedReader(reader)) {
                         scanner.readFile(bufferedReader);
                     } catch (FileNotFoundException e) {
