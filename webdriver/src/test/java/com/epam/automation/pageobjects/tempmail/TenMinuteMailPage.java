@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.automation.pageobjects.AbstractPage;
 
 import java.awt.*;
@@ -35,20 +33,13 @@ public class TenMinuteMailPage extends AbstractPage {
     }
 
     public String getEstimatedCostFromMessage() {
-        new WebDriverWait(webDriver, 120)
-                .until(ExpectedConditions.elementToBeClickable(messageContainer)).click();
-
-        return new WebDriverWait(webDriver, 60)
-                .until(ExpectedConditions.presenceOfElementLocated(COST_FIELD_LOCATOR))
-                .getText();
+        waitForElementToBeClickable(messageContainer, 120).click();
+        return waitForElementPresence(COST_FIELD_LOCATOR, 60).getText();
     }
 
     public String getEmailAddress() {
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(mailAddressField));
-        new WebDriverWait(webDriver, 30)
-                .until(ExpectedConditions.elementToBeClickable(copyEmailButton))
-                .click();
+        waitForElementToBeClickable(mailAddressField, 10);
+        waitForElementToBeClickable(copyEmailButton, 30).click();
         String email = null;
         try {
             email = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);

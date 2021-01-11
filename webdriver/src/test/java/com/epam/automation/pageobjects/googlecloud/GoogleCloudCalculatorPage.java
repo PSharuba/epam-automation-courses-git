@@ -4,26 +4,20 @@ import com.epam.automation.model.GoogleCloudComputerInstance;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.automation.pageobjects.AbstractPage;
-
-import java.util.HashMap;
-import java.util.List;
 
 public class GoogleCloudCalculatorPage extends AbstractPage {
 
-    private final String OPTION_LOCATOR_PREFIX = "//md-option/div[contains(.,'";
-    private final String LOCATOR_POSTFIX = "')]/..";
-    private final String MACHINE_CLASS_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_81']//div[contains(.,'";
-    private final String MACHINE_SERIES_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_89']//div[contains(.,'";
-    private final String MACHINE_TYPE_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_91']//div[contains(.,'";
-    private final String GPU_NUMBER_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_395']//div[contains(.,'";
-    private final String GPU_TYPE_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_397']//div[contains(.,'";
-    private final String SSD_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_356']//div[contains(.,'";
-    private final String DATA_CENTER_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_93']//div[contains(.,'";
-    private final String COMMITED_USAGE_OPTION_LOCATOR_PREFIX = "//*[@id='select_container_100']//div[contains(.,'";
-    private final String RESULT_FIELD_LOCATOR_PREFIX = "//div[@class='md-list-item-text ng-binding'][contains(.,'";
+    private final String OPTION_LOCATOR = "//md-option/div[contains(.,'%s')]/..";
+    private final String MACHINE_CLASS_OPTION_LOCATOR = "//*[@id='select_container_81']//div[contains(.,'%s')]/..";
+    private final String MACHINE_SERIES_OPTION_LOCATOR = "//*[@id='select_container_89']//div[contains(.,'%s')]/..";
+    private final String MACHINE_TYPE_OPTION_LOCATOR = "//*[@id='select_container_91']//div[contains(.,'%s')]/..";
+    private final String GPU_NUMBER_OPTION_LOCATOR = "//*[@id='select_container_395']//div[contains(.,'%s')]/..";
+    private final String GPU_TYPE_OPTION_LOCATOR = "//*[@id='select_container_397']//div[contains(.,'%s')]/..";
+    private final String SSD_OPTION_LOCATOR = "//*[@id='select_container_356']//div[contains(.,'%s')]/..";
+    private final String DATA_CENTER_OPTION_LOCATOR = "//*[@id='select_container_93']//div[contains(.,'%s')]/..";
+    private final String COMMITED_USAGE_OPTION_LOCATOR = "//*[@id='select_container_100']//div[contains(.,'%s')]/..";
+    private final String RESULT_FIELD_LOCATOR = "//div[@class='md-list-item-text ng-binding'][contains(.,'%s')]/..";
     private final By RESULT_BLOCK_LOCATOR = By.xpath("//md-card-content[@id='resultBlock']");
     private final By EMAIL_INPUT_LOCATOR = By.xpath("//input[@type='email']");
     private final By RESULT_INSTANCE_COUNT_LOCATOR = By.xpath("//span[@class='ng-binding ng-scope']");
@@ -78,67 +72,39 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
     }
 
     public GoogleCloudCalculatorPage enterInstanceData(GoogleCloudComputerInstance instance) {
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(instanceCountField))
+        waitForElementToBeClickable(instanceCountField, 10)
                 .sendKeys(instance.getInstanceCount() + "");
+
         osField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(OPTION_LOCATOR_PREFIX
-                                + instance.getSystem()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(OPTION_LOCATOR, instance.getSystem()), 10)
                 .click();
+
         machineClassField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(MACHINE_CLASS_OPTION_LOCATOR_PREFIX
-                                + instance.getVmClass()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(MACHINE_CLASS_OPTION_LOCATOR, instance.getVmClass()), 10)
                 .click();
+
         machineSeriesField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(MACHINE_SERIES_OPTION_LOCATOR_PREFIX
-                                + instance.getSeries()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(MACHINE_SERIES_OPTION_LOCATOR, instance.getSeries()), 10)
                 .click();
+
         machineTypeField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(MACHINE_TYPE_OPTION_LOCATOR_PREFIX
-                                + instance.getType()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(MACHINE_TYPE_OPTION_LOCATOR, instance.getType()), 10)
                 .click();
+
         if (instance.getGpuCount() > 0) {
             addGpuWithCertainType(instance.getGpuCount(), instance.getGpuType());
         }
+
         ssdTypeField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(SSD_OPTION_LOCATOR_PREFIX
-                                + instance.getSsdType()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(SSD_OPTION_LOCATOR, instance.getSsdType()), 10)
                 .click();
+
         dataCenterLocationField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(DATA_CENTER_OPTION_LOCATOR_PREFIX
-                                + instance.getDatacenter()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(DATA_CENTER_OPTION_LOCATOR, instance.getDatacenter()), 10)
                 .click();
+
         commitedUsageField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(COMMITED_USAGE_OPTION_LOCATOR_PREFIX
-                                + instance.getUsage()
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(COMMITED_USAGE_OPTION_LOCATOR, instance.getUsage()), 10)
                 .click();
 
         logger.info("Entered instance data");
@@ -148,106 +114,67 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
     public GoogleCloudCalculatorPage addGpuWithCertainType(int number, String type) {
         gpuCheckbox.click();
         gpuNumberField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(GPU_NUMBER_OPTION_LOCATOR_PREFIX
-                                + number
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(GPU_NUMBER_OPTION_LOCATOR, number), 10)
                 .click();
+
         gpuTypeField.click();
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(GPU_TYPE_OPTION_LOCATOR_PREFIX
-                                + type
-                                + LOCATOR_POSTFIX
-                        )))
+        waitForElementToBeClickable(String.format(GPU_TYPE_OPTION_LOCATOR, type), 10)
                 .click();
         return this;
     }
 
     public GoogleCloudCalculatorPage addToEstimate() {
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(addToEstimateButton))
+        waitForElementToBeClickable(addToEstimateButton, 10)
                 .click();
         logger.info("Added instance to estimate");
         return this;
     }
 
     public String getVMClass() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        RESULT_FIELD_LOCATOR_PREFIX
-                                + "VM class" +
-                                LOCATOR_POSTFIX
-                ))).getText().replace("VM class: ", "");
+        return waitForElementPresence(String.format(RESULT_FIELD_LOCATOR, "VM class"), 10)
+                .getText().replace("VM class: ", "");
     }
 
     public String getInstanceType() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        RESULT_FIELD_LOCATOR_PREFIX
-                                + "Instance type" +
-                                LOCATOR_POSTFIX
-                ))).getText().replace("Instance type: ", "");
+        return waitForElementPresence(String.format(RESULT_FIELD_LOCATOR, "Instance type"), 10)
+                .getText().replace("Instance type: ", "");
     }
 
     public String getDatacenter() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        RESULT_FIELD_LOCATOR_PREFIX
-                                + "Region" +
-                                LOCATOR_POSTFIX
-                ))).getText().replace("Region: ", "");
+        return waitForElementPresence(String.format(RESULT_FIELD_LOCATOR, "Region"), 10)
+                .getText().replace("Region: ", "");
     }
 
     public String getSSDType() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        RESULT_FIELD_LOCATOR_PREFIX
-                                + "SSD" +
-                                LOCATOR_POSTFIX
-                ))).getText().replace("Total available local SSD space ", "").replace("i", "");
+        return waitForElementPresence(String.format(RESULT_FIELD_LOCATOR, "SSD"), 10)
+                .getText().replace("Total available local SSD space ", "")
+                .replace("i", "");
     }
 
     public String getCommitmentTerm() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        RESULT_FIELD_LOCATOR_PREFIX
-                                + "Commitment term" +
-                                LOCATOR_POSTFIX
-                ))).getText().replace("Commitment term: ", "");
+        return waitForElementPresence(String.format(RESULT_FIELD_LOCATOR, "Commitment term"), 10)
+                .getText().replace("Commitment term: ", "");
     }
 
     public String getEstimatedCost() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        RESULT_TOTAL_COST_LOCATOR
-                )).getText()
+        return waitForElementPresence(RESULT_TOTAL_COST_LOCATOR, 10)
+                .getText()
                 .replace("Total Estimated Cost: ", "")
                 .replace(" per 1 month", "");
     }
 
     public int getInstanceCount() {
-        return Integer.parseInt(new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        RESULT_INSTANCE_COUNT_LOCATOR
-                )).getText().replaceAll("[\\D]", ""));
+        return Integer.parseInt(waitForElementPresence(RESULT_INSTANCE_COUNT_LOCATOR, 10)
+                .getText().replaceAll("[\\D]", ""));
     }
 
     public GoogleCloudCalculatorPage sendEmail(String email) {
         webDriver.switchTo().frame(0);
         webDriver.switchTo().frame(0);
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(emailEstimateButton)).click();
-
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(EMAIL_INPUT_LOCATOR));
+        waitForElementToBeClickable(emailEstimateButton, 10).click();
+        waitForElementToBeClickable(EMAIL_INPUT_LOCATOR, 10);
         emailField.sendKeys(email);
-
-
-        new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions.elementToBeClickable(sendEmailButton)).click();
+        waitForElementToBeClickable(sendEmailButton, 10).click();
         logger.info("Sent instance via email");
         return this;
     }

@@ -2,8 +2,6 @@ package com.epam.automation.pageobjects.pastebin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.automation.pageobjects.AbstractPage;
 
 public class PastePage extends AbstractPage {
@@ -17,21 +15,15 @@ public class PastePage extends AbstractPage {
     }
 
     public String getPasteText() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions
-                        .presenceOfElementLocated(PASTE_TEXT_AREA_LOCATOR)).getText();
+        return waitForElementPresence(PASTE_TEXT_AREA_LOCATOR, 10).getText();
     }
 
     public String getPasteTitle() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions
-                        .presenceOfElementLocated(PASTE_TITLE_LOCATOR)).getText();
+        return waitForElementPresence(PASTE_TITLE_LOCATOR, 10).getText();
     }
 
     public String getPasteHighlighting() {
-        return new WebDriverWait(webDriver, 10)
-                .until(ExpectedConditions
-                        .presenceOfElementLocated(PASTE_HIGHLIGHTED_AREA_LOCATOR)).getText();
+        return waitForElementPresence(PASTE_HIGHLIGHTED_AREA_LOCATOR, 10).getText();
     }
 
     @Override
