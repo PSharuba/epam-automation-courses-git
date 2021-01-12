@@ -18,7 +18,6 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
     private final String DATA_CENTER_OPTION_LOCATOR = "//*[@id='select_container_93']//div[contains(.,'%s')]/..";
     private final String COMMITED_USAGE_OPTION_LOCATOR = "//*[@id='select_container_100']//div[contains(.,'%s')]/..";
     private final String RESULT_FIELD_LOCATOR = "//div[@class='md-list-item-text ng-binding'][contains(.,'%s')]/..";
-    private final By RESULT_BLOCK_LOCATOR = By.xpath("//md-card-content[@id='resultBlock']");
     private final By EMAIL_INPUT_LOCATOR = By.xpath("//input[@type='email']");
     private final By RESULT_INSTANCE_COUNT_LOCATOR = By.xpath("//span[@class='ng-binding ng-scope']");
     private final By RESULT_TOTAL_COST_LOCATOR = By.xpath("//h2/b[@class='ng-binding']");
