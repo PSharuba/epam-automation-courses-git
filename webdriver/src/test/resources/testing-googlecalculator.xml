@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="GCC tests" verbose="1">
+    <test name="GCC tests">
+        <classes>
+            <class name="com.epam.automation.tests.GoogleCloudTests"/>
+        </classes>
+    </test>
+</suite>

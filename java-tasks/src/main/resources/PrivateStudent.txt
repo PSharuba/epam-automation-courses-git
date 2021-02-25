@@ -1,0 +1,195 @@
+package com.epam.automation.java.classes;
+
+
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+private class Student {
+    private long id;
+    private String name;
+    private String surname;
+    private String patronymic;
+    private LocalDate dateOfBirth;
+    private String address;
+    private String phone;
+    private Faculty faculty;
+    private Course course;
+    private int group;
+
+    private Student(long id, String name, String surname,
+                   String patronymic, LocalDate dateOfBirth) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        if (dateOfBirth.isBefore(LocalDate.now())) {
+            this.dateOfBirth = dateOfBirth;
+        }
+    }
+
+    private Student(long id, String name, String surname, String patronymic,
+                   LocalDate dateOfBirth, Faculty faculty, Course course, int group) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        if (dateOfBirth.isBefore(LocalDate.now())) {
+            this.dateOfBirth = dateOfBirth;
+        }
+        this.faculty = faculty;
+        this.course = course;
+        if (group > 0) {
+            this.group = group;
+        } else {
+            this.group = 1;
+        }
+    }
+
+    private Student(long id, String name, String surname, String patronymic,
+                   LocalDate dateOfBirth, String address, String phone,
+                   Faculty faculty, Course course, int group) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        if (dateOfBirth.isBefore(LocalDate.now())) {
+            this.dateOfBirth = dateOfBirth;
+        }
+        this.address = address;
+        this.phone = phone;
+        this.faculty = faculty;
+        this.course = course;
+        if (group > 0) {
+            this.group = group;
+        } else {
+            this.group = 1;
+        }
+    }
+
+    private boolean isBornAfter(int year) {
+        LocalDate dateToCompareWith = LocalDate.of(year, 1, 1).minusDays(1);
+        return dateOfBirth.isAfter(dateToCompareWith);
+    }
+
+    private long getId() {
+        return id;
+    }
+
+    private void setId(long id) {
+        this.id = id;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    private String getSurname() {
+        return surname;
+    }
+
+    private void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    private String getPatronymic() {
+        return patronymic;
+    }
+
+    private void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    private LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    private boolean setDateOfBirth(LocalDate dateOfBirth) {
+        if (dateOfBirth.isBefore(LocalDate.now())) {
+            this.dateOfBirth = dateOfBirth;
+            return true;
+        }
+        return false;
+    }
+
+    private String getAddress() {
+        return address;
+    }
+
+    private void setAddress(String address) {
+        this.address = address;
+    }
+
+    private String getPhone() {
+        return phone;
+    }
+
+    private void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    private Faculty getFaculty() {
+        return faculty;
+    }
+
+    private void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    private Course getCourse() {
+        return course;
+    }
+
+    private void setCourse(Course course) {
+        this.course = course;
+    }
+
+    private int getGroup() {
+        return group;
+    }
+
+    private boolean setGroup(int group) {
+        if (group > 0) {
+            this.group = group;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    private String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Student: [").append(id).append("] ")
+                .append(surname).append(" ").append(name).append(" ").append(patronymic).append(" ")
+                .append(dateOfBirth.toString()).append("\n")
+                .append("Address: ").append(address).append(". Phone: ").append(phone).append("\n")
+                .append(faculty.getFacultyName()).append(", course - ").append(course.name()).append(", group - ").append(group);
+        return builder.toString();
+    }
+
+    @Override
+    private boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id &&
+                group == student.group &&
+                name.equals(student.name) &&
+                surname.equals(student.surname) &&
+                Objects.equals(patronymic, student.patronymic) &&
+                Objects.equals(dateOfBirth, student.dateOfBirth) &&
+                Objects.equals(address, student.address) &&
+                Objects.equals(phone, student.phone) &&
+                faculty == student.faculty &&
+                course == student.course;
+    }
+
+    @Override
+    private int hashCode() {
+        return Objects.hash(id, name, surname, patronymic, dateOfBirth, address, phone, faculty, course, group);
+    }
+}
