@@ -18,8 +18,6 @@ Your misery's your only friend and you're to blame
 Blind decisions, no regrets
 A bittersweet of toxic sweat
 ====================================
-====================================
-====================================
 You take my pride, taking chances on my life
 Never insist, but in time
 You just wait, you're gonna say my name
@@ -46,3 +44,5 @@ You just wait, you're gonna say my name
 Oh, bitch, say my name
 You know you're gonna say my name
 Oh, say my name
+
+song.txt
